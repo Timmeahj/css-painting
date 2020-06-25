@@ -126,3 +126,118 @@ fillGround(document.getElementById('ground6'), 5, 30, 30, 7, 6, 0.7);
 function randomIntBetween(min, max) { // min and max included
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
+
+
+
+function spawnCloud(size, style){
+  let cloud = document.createElement("div");
+  cloud.classList.add('cloud');
+  cloud.classList.add(size);
+  cloud.classList.add(style);
+  cloud.style.transitionDuration = randomIntBetween(8, 20)+"s";
+  cloud.style.top = randomIntBetween(0, window.innerHeight/3)+'px';
+  let first = document.createElement("div");
+  first.classList.add('first');
+  cloud.appendChild(first);
+  let second = document.createElement("div");
+  second.classList.add('second');
+  cloud.appendChild(second);
+  let third = document.createElement("div");
+  third.classList.add('third');
+  cloud.appendChild(third);
+  document.body.appendChild(cloud);
+  setTimeout(function(){
+    cloud.style.marginLeft = window.innerWidth+"px";
+    setTimeout(function () {
+      destroy(cloud);
+    }, 20000)
+  }, 500);
+}
+
+function destroy(element) {
+  element.remove();
+}
+
+let sizes = ["smallCloud", "mediumCloud", "bigCloud"];
+let styles = ["cloud1", "cloud1", "cloud1"];
+
+function cloudInterval() {
+  let randomSize = sizes[randomIntBetween(0, 2)];
+  let randomStyle = styles[randomIntBetween(0, 2)];
+  let randomTime = randomIntBetween(10000, 13000)
+  spawnCloud(randomSize, randomStyle);
+  setTimeout(function () {
+    spawnCloud(randomSize, randomStyle);
+  }, randomTime/2);
+  setTimeout(cloudInterval, randomTime);
+}
+
+cloudInterval();
+
+function closeEyes() {
+  let eyes = document.getElementsByClassName('eyes');
+  for(let i = 0; i < eyes.length; i++){
+    eyes[i].style.height = "0px";
+    eyes[i].style.marginTop = "17px";
+    eyes[i].style.borderTop = "1px solid black";
+  }
+
+}
+
+function openEyes() {
+  let eyes = document.getElementsByClassName('eyes');
+  for(let i = 0; i < eyes.length; i++){
+    eyes[i].style.height = "5px";
+    eyes[i].style.marginTop = "15px";
+    eyes[i].style.border = "none";
+  }
+}
+
+function blink(){
+  let randomBlink = randomIntBetween(2000, 4000);
+  let randomBreak = randomIntBetween(200, 800)
+  let nextBlink = randomIntBetween(5000, 7000);
+  let amount = randomIntBetween(1, 2);
+  if(amount > 1){
+    setTimeout(closeEyes, randomBlink);
+    setTimeout(openEyes, randomBlink+150);
+    setTimeout(closeEyes, randomBlink+150+randomBreak);
+    setTimeout(openEyes, randomBlink+150+randomBreak+150);
+  } else{
+    setTimeout(closeEyes, randomBlink);
+    setTimeout(openEyes, randomBlink+150);
+  }
+
+  setTimeout(blink, nextBlink);
+}
+
+blink();
+
+function wobbleFinn(speed) {
+  let finn = document.getElementById('finn');
+  finn.style.transitionDuration = speed+"ms";
+  finn.style.transform = "rotate(1deg) translate(15px, 0px) skew(-3deg, 0deg)";
+  setTimeout(function () {
+    finn.style.transform = "rotate(-1deg) translate(-15px, 0px) skew(3deg, 0deg)";
+  }, speed);
+  setTimeout(function () {
+    wobbleFinn(speed);
+  }, speed*2);
+}
+
+wobbleFinn(2000);
+
+/*
+Laura: 5
+Yuri: 4
+Dirk: 3
+Said: 3
+Vinnie: 5
+Ennio: 2
+Ahmad: 3
+Nathan: 5
+Chris: 3
+Lenn: 1
+Jeremia: 4
+
+ */

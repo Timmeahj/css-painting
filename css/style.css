@@ -7,7 +7,7 @@ body{
 .center{
   width: 100px;
   height: 400px;
-  margin: calc(50vh - 200px) auto;
+  margin: 0 auto;
 }
 
 .finn{
@@ -430,4 +430,116 @@ body{
   margin-top: 100px;
   margin-left: 431px;
   transform: rotate(0deg);
+}
+
+.cloud{
+  overflow: hidden;
+  position: absolute;
+  margin-left: -250px;
+  top: 0;
+  transition-timing-function: linear;
+  z-index: -1000;
+}
+
+.smallCloud{
+  width: 120px;
+  height: 50px;
+}
+
+.mediumCloud{
+  width: 180px;
+  height: 75px;
+}
+
+.bigCloud{
+  width: 240px;
+  height: 100px;
+}
+
+.smallCloud .first{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  margin-top: 30px;
+  position: absolute;
+}
+
+.mediumCloud .first{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: white;
+  margin-top: 45px;
+  position: absolute;
+}
+
+.bigCloud .first{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: white;
+  margin-top: 60px;
+  position: absolute;
+}
+
+
+.smallCloud .second{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: white;
+  margin-top: 15px;
+  margin-left: 25px;
+  position: absolute;
+}
+
+.mediumCloud .second{
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background: white;
+  margin-top: 22px;
+  margin-left: 37px;
+  position: absolute;
+}
+
+.bigCloud .second{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: white;
+  margin-top: 30px;
+  margin-left: 50px;
+  position: absolute;
+}
+
+.smallCloud .third{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  margin-top: 30px;
+  margin-left: 60px;
+  position: absolute;
+}
+
+.mediumCloud .third{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: white;
+  margin-top: 45px;
+  margin-left: 90px;
+  position: absolute;
+}
+
+.bigCloud .third{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: white;
+  margin-top: 60px;
+  margin-left: 120px;
+  position: absolute;
 }
