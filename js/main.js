@@ -226,18 +226,3 @@ function wobbleFinn(speed) {
 }
 
 wobbleFinn(2000);
-
-/*
-Laura: 5
-Yuri: 4
-Dirk: 3
-Said: 3
-Vinnie: 5
-Ennio: 2
-Ahmad: 3
-Nathan: 5
-Chris: 3
-Lenn: 1
-Jeremia: 4
-
- */
